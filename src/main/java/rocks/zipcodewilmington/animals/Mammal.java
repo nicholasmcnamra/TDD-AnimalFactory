@@ -4,6 +4,7 @@ import rocks.zipcodewilmington.Food;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @author leon on 4/19/18.
@@ -19,6 +20,15 @@ public abstract class Mammal implements Animal {
         this.birthDate = birthDate;
         this.eatenMeals = new ArrayList<>();
         this.id = id;
+    }
+
+    public Mammal(Integer id) {
+        this.id = id;
+    }
+
+    public Mammal(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public String getName() {
@@ -45,6 +55,7 @@ public abstract class Mammal implements Animal {
     public void eat(Food food) {
         eatenMeals.add(food);
     }
+
 
     @Override
     public Integer getId() {

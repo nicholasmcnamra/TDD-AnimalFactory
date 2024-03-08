@@ -10,6 +10,15 @@ public class Cat extends Mammal {
         super(name, birthDate, id);
     }
 
+    public Cat(Integer id, String name) {
+        super(id, name);
+    }
+
+    public Cat(Integer id, Date birthDate) {
+        super(id, String.valueOf(birthDate));
+
+    }
+
     public String speak() {
         return "meow!";
     }
