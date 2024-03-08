@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Dog;
 
+import java.util.Date;
+
 /**
  * @author leon on 4/19/18.
  */
@@ -28,4 +30,53 @@ public class DogTest {
         String dogName = dog.getName();
         Assert.assertEquals(dogName, givenName);
     }
+
+    @Test
+    public void newDogTest() {
+        String givenName = "chump";
+        Date givenBirthDate = new Date(2011,11,23);
+        Integer givenId = Integer.valueOf(8783);
+
+        Dog expectedDog = new Dog(givenName, givenBirthDate, givenId);
+
+        String retrievedName = expectedDog.getName();
+        Date retrievedBirthDate = expectedDog.getBirthDate();
+        Integer retrievedId = expectedDog.getId();
+
+        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
+        Assert.assertEquals(givenId, retrievedId);
+    }
+
+    @Test
+    public void speakTest() {
+        String expected = "bark!";
+        Dog dog = new Dog(5438);
+        String actual = dog.speak();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setBirthDateTest() {
+        Date expectedBirthDate = new Date(2016, 12, 03);
+        Dog dog = new Dog(Integer.valueOf(0), expectedBirthDate);
+
+        dog.setBirthDate(expectedBirthDate);
+
+        Date actualBirthdate = dog.getBirthDate();
+        Assert.assertEquals(expectedBirthDate, actualBirthdate);
+    }
+
+    @Test
+    public void eatFoodTest() {
+        Food beefJerkey = new Food();
+        Dog dog = new Dog(Integer.valueOf(0));
+
+        Integer expectedNumberMeals = dog.getNumberOfMealsEaten() + 1;
+        dog.eat(beefJerkey);
+        Integer actualNumberMeals = dog.getNumberOfMealsEaten();
+        Assert.assertEquals(expectedNumberMeals, actualNumberMeals);
+    }
+    
 }

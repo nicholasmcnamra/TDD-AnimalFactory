@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public abstract class Mammal implements Animal {
     private final Integer id;
-    private ArrayList<Food> eatenMeals;
+    private ArrayList<Food> eatenMeals = new ArrayList<>();
     private String name;
     private Date birthDate;
 
@@ -46,6 +46,7 @@ public abstract class Mammal implements Animal {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
 
 
     public Integer getNumberOfMealsEaten() {

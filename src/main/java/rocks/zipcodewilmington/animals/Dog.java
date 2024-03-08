@@ -10,6 +10,14 @@ public class Dog extends Mammal {
         super(name, birthDate, id);
     }
 
+    public Dog(Integer id) {
+        super(id);
+    }
+
+    public Dog(Integer id, Date birthDate) {
+        super(id, String.valueOf(birthDate));
+    }
+
     public String speak() {
         return "bark!";
     }

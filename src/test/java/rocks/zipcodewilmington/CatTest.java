@@ -75,15 +75,16 @@ public class CatTest {
         Assert.assertEquals(expectedBirthDate, actualBirthDate);
     }
 
-//    @Test
-//    public void eatFoodTest() {
-//        Cat cat = new Cat(Integer.valueOf(9022), "josh");
-//        cat.eat(new Food());
-//        Integer expectedNumberMeals;
-//
-//        Integer actualNumberOfMeals = cat.getNumberOfMealsEaten();
-//        Assert.assertEquals(expectedNumberMeals, actualNumberOfMeals);
-//    }
+    @Test
+    public void eatFoodTest() {
+        Food fish = new Food();
+        Cat cat = new Cat(Integer.valueOf(9022), "josh");
+
+        Integer expectedNumberMeals = cat.getNumberOfMealsEaten() + 1;
+        cat.eat(fish);
+        Integer actualNumberOfMeals = cat.getNumberOfMealsEaten();
+        Assert.assertEquals(expectedNumberMeals, actualNumberOfMeals);
+    }
 
     @Test
     public void getIdTest() {
